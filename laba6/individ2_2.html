@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiments 2</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            padding: 10px;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+        }
+        .image-container {
+            display: inline-block;
+            position: relative;
+        }
+        .hidden {
+            visibility: hidden; /* Используем visibility: hidden; вместо display: none; */
+            pointer-events: none; /* Чтобы скрытый элемент не получал события мыши */
+        }
+    </style>
+</head>
+<body>
+    <h1>Вариант 2: в исходный файл Experiments2.html добавить обработку события «двойной
+        щелчок мышки по элементу». Для элемента с атрибутом align="center" нужно настроить
+        исчезновение/появление элемента.</h1>
+    <table>
+        <tr>
+            <td align="center">
+                <div class="image-container" id="image1">
+                    <img src="img/1123.png" alt="Изображение 1">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="image-container" id="image2">
+                    <img src="img/1123.png" alt="Изображение 2">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <div class="image-container" id="image3">
+                    <img src="img/1123.png" alt="Изображение 3">
+                </div>
+            </td>
+        </tr>
+    </table>
+    <button onclick="redirectToPage()">Продолжить</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var imageContainers = document.querySelectorAll('[align="center"] .image-container');
+            
+            imageContainers.forEach(function(container) {
+                container.addEventListener('dblclick', function(event) {
+                    event.stopPropagation();
+                    this.classList.toggle('hidden');
+                });
+            });
+
+            // Добавляем обработчик события для клика на другие элементы страницы
+            document.addEventListener('dblclick', function(event) {
+                var target = event.target;
+                // Проверяем, кликнули ли мы вне элемента и если элемент скрыт, показываем его
+                if (!target.classList.contains('image-container')) {
+                    imageContainers.forEach(function(container) {
+                        if (container.classList.contains('hidden')) {
+                            container.classList.remove('hidden');
+                        }
+                    });
+                }
+            });
+        });
+
+        function redirectToPage() {
+            window.location.href = "individ2_3.html";
+        }
+    </script>
+</body>
+</html>

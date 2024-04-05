@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Individual 4</title>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    img {
+        cursor: pointer;
+        width: 100px;
+        height: 100px;
+        margin-bottom: 20px;
+        transition: opacity 1s ease-in-out;
+    }
+</style>
+</head>
+<body>
+    <h1>Вариант 2: создать файл Individual_4.html, добавить сверху кнопку, а затем 6 маленьких
+        рисунков одинакового размера, один под другим. При нажатии на кнопку среди всех
+        найденных рисунков для четных выполнить эффект слайд-шоу – заезд/скрытие рисунка
+        под соответствующим ему верхним рисунком со скоростью «slow».</h1>
+<button onclick="toggleSlideShow()">Toggle Slide Show</button>
+<button onclick="redirectToPage()">Продолжить</button>
+
+<img src="img/1123.png" alt="Image 1" id="img1" style="opacity: 1;" onclick="toggleSlide(this)">
+<img src="img/1123.png" alt="Image 2" id="img2" style="opacity: 1;" onclick="toggleSlide(this)">
+<img src="img/1123.png" alt="Image 3" id="img3" style="opacity: 1;" onclick="toggleSlide(this)">
+<img src="img/1123.png" alt="Image 4" id="img4" style="opacity: 1;" onclick="toggleSlide(this)">
+<img src="img/1123.png" alt="Image 5" id="img5" style="opacity: 1;" onclick="toggleSlide(this)">
+<img src="img/1123.png" alt="Image 6" id="img6" style="opacity: 1;" onclick="toggleSlide(this)">
+
+<script>
+    var slideShowActive = false;
+    var slideInterval;
+
+    function toggleSlideShow() {
+        slideShowActive = !slideShowActive;
+        clearInterval(slideInterval);
+        
+        if (slideShowActive) {
+            slideInterval = setInterval(function() {
+                var evenImages = document.querySelectorAll('img:nth-child(even)');
+                for (var i = 0; i < evenImages.length; i++) {
+                    toggleSlide(evenImages[i]);
+                }
+            }, 2000);
+        }
+    }
+
+    function toggleSlide(image) {
+        if (slideShowActive) {
+            image.style.opacity = (image.style.opacity === '0') ? '1' : '0';
+        }
+    }
+    function redirectToPage() {
+      window.location.href = "individ4_3.html";
+    }
+</script>
+
+</body>
+</html>

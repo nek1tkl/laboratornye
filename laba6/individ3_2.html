@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Individual 3</title>
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+<body>
+    <h1>Вариант 2: создать файл Individual_3.html, добавить пять областей div с id “div1”,
+        “div2”,...,“div5”, в которые поместить тексты, невидимые при загрузке страницы, и две
+        кнопки. При нажатии на одну кнопку должно определяться случайное число от 1 до 5. В
+        зависимости от этого числа должна проявиться соответствующая область div со
+        скоростью 3000. При нажатии на вторую кнопку все области div снова скрываются.</h1>
+    <div id="div1" class="hidden">Текст 1</div>
+    <div id="div2" class="hidden">Текст 2</div>
+    <div id="div3" class="hidden">Текст 3</div>
+    <div id="div4" class="hidden">Текст 4</div>
+    <div id="div5" class="hidden">Текст 5</div>
+
+    <button id="showButton">Показать случайный div</button>
+    <button id="hideButton">Скрыть все div</button>
+    <button onclick="redirectToPage()">Продолжить</button>
+
+    <script>
+        const showButton = document.getElementById('showButton');
+        const hideButton = document.getElementById('hideButton');
+        const divs = document.querySelectorAll('div[id^="div"]');
+        let shownDivs = [];
+
+        function showRandomDiv() {
+            divs.forEach(function(div) {
+                if (shownDivs.includes(div.id)) {
+                    div.classList.remove('hidden');
+                }
+            });
+
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * 5) + 1;
+            } while (shownDivs.includes(`div${randomIndex}`));
+
+            shownDivs.push(`div${randomIndex}`);
+            document.getElementById(`div${randomIndex}`).classList.remove('hidden');
+        }
+
+        showButton.addEventListener('click', function() {
+            setTimeout(showRandomDiv, 3000);
+        });
+
+        hideButton.addEventListener('click', function() {
+            divs.forEach(function(div) {
+                div.classList.add('hidden');
+            });
+            shownDivs = [];
+        });
+
+        function redirectToPage() {
+            window.location.href = "individ3_3.html";
+        }
+    </script>
+</body>
+</html>

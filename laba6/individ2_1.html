@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiments 2</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            padding: 10px;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Вариант 1: в исходный файл Experiments2.html добавить обработку события «наведение
+        мышки на элемент». Если этот элемент относится к таблице (в теге img), то при
+        наведении на него курсора, он должен скрываться.</h1>
+    <table>
+        <tr>
+            <td><img src="img/1123.png" alt="Изображение 1"></td>
+            <td><img src="img/1123.png" alt="Изображение 2"></td>
+            <td><img src="img/1123.png" alt="Изображение 3"></td>
+        </tr>
+    </table>
+    <button onclick="redirectToPage()">Продолжить</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var images = document.querySelectorAll('table img');
+            
+            images.forEach(function(image) {
+                image.addEventListener('mouseover', function() {
+                    this.style.display = 'none';
+                });
+            });
+        });
+        function redirectToPage() {
+      window.location.href = "individ2_2.html";
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiments</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 20px;
+        }
+        h2 {
+          color: #333;
+        }
+        p {
+          margin-bottom: 10px;
+        }
+        button {
+          padding: 8px 16px;
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          margin-right: 10px;
+        }
+        button:hover {
+          background-color: #0056b3;
+        }
+        a {
+          display: block;
+          margin-bottom: 10px;
+        }
+      </style>
+</head>
+<body>
+  <h1>Вариант 2: в исходный файл Experiments.html добавить в начало две кнопки: одну-для
+    скрытия элементов, другую – для отображения скрытых элементов. Настроить методы
+    click( ) кнопок, так чтобы они то скрывали, то отображали четные элементы типа <tr>.</h1>
+    <button id="hideButton">Скрыть четные элементы</button>
+    <button id="showButton">Показать скрытые элементы</button>
+    <table id="myTable">
+        <tr><td>Элемент 1</td></tr>
+        <tr><td>Элемент 2</td></tr>
+        <tr><td>Элемент 3</td></tr>
+        <tr><td>Элемент 4</td></tr>
+        <tr><td>Элемент 5</td></tr>
+    </table>
+    <button onclick="redirectToPage()">Продолжить</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var hideButton = document.getElementById('hideButton');
+            var showButton = document.getElementById('showButton');
+            var tableRows = document.querySelectorAll('table#myTable tr');
+
+            hideButton.addEventListener('click', function () {
+                for (var i = 0; i < tableRows.length; i++) {
+                    if (i % 2 !== 0) {
+                        tableRows[i].style.display = 'none'; 
+                    }
+                }
+            });
+
+            showButton.addEventListener('click', function () {
+                for (var i = 0; i < tableRows.length; i++) {
+                    if (i % 2 !== 0) {
+                        tableRows[i].style.display = ''; 
+                    }
+                }
+            });
+        });
+        function redirectToPage() {
+      window.location.href = "individ1_3.html";
+    }
+    </script>
+</body>
+</html>

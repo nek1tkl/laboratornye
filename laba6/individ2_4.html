@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiments</title>
+<style>
+    /* CSS стили */
+    #inputField {
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+</style>
+</head>
+<body>
+    <h1>Вариант 4: в исходный файл Experiments2.html добавить элемент формы «поле ввода»,
+        настроить для него обработку keypress, а именно случайным образом менять цвет этого
+        поля (свойство background-color).</h1>
+    <form>
+        <input type="text" id="inputField" placeholder="Введите что-нибудь...">
+    </form>
+    <button onclick="redirectToPage()">Продолжить</button>
+    <script>
+        const inputField = document.getElementById('inputField');
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        inputField.addEventListener('keypress', function(event) {
+            const randomColor = getRandomColor();
+            inputField.style.backgroundColor = randomColor;
+        });
+        function redirectToPage() {
+      window.location.href = "individ3_1.html";
+    }
+    </script>
+</body>
+</html>

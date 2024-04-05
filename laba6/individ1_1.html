@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiments</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 20px;
+        }
+        h2 {
+          color: #333;
+        }
+        p {
+          margin-bottom: 10px;
+        }
+        button {
+          padding: 8px 16px;
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          margin-right: 10px;
+        }
+        button:hover {
+          background-color: #0056b3;
+        }
+        a {
+          display: block;
+          margin-bottom: 10px;
+        }
+      </style>
+</head>
+<body>
+  <h1>Вариант 1: в исходный файл Experiments.html добавить в начало две кнопки: одну-для
+    скрытия элементов, другую – для отображения скрытых элементов. Настроить методы
+    click( ) кнопок, так чтобы они то скрывали, то отображали нечетные элементы с классом
+    MsoNormal.</h1>
+    <button id="hideButton">Скрыть нечетные элементы</button>
+    <button id="showButton">Показать скрытые элементы</button>
+    <div class="MsoNormal">Элемент 1</div>
+    <div class="MsoNormal">Элемент 2</div>
+    <div class="MsoNormal">Элемент 3</div>
+    <div class="MsoNormal">Элемент 4</div>
+    <div class="MsoNormal">Элемент 5</div>
+    <button onclick="redirectToPage()">Продолжить</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var hideButton = document.getElementById('hideButton');
+            var showButton = document.getElementById('showButton');
+            var elements = document.querySelectorAll('.MsoNormal');
+            
+
+            hideButton.addEventListener('click', function () {
+                for (var i = 0; i < elements.length; i++) {
+                    if (i % 2 === 0) { 
+                        elements[i].style.display = 'none';
+                    }
+                }
+            });
+
+            showButton.addEventListener('click', function () {
+                for (var i = 0; i < elements.length; i++) {
+                    if (i % 2 === 0) { 
+                        elements[i].style.display = ''; 
+                    }
+                }
+            });
+            
+        });
+        function redirectToPage() {
+      window.location.href = "individ1_2.html";
+    }
+    </script>
+</body>
+</html>

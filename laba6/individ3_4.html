@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Individual 3</title>
+<style>
+    .hidden {
+        display: none;
+    }
+    .div-box {
+        width: 40px;
+        height: 40px;
+        margin: 5px;
+        float: left;
+        transition: all 0.5s ease-in-out;
+    }
+</style>
+</head>
+<body>
+    <h1>Вариант 4: создать файл Individual_3.html, добавить пять областей div 40х40 пикселей с
+        id “div1”, “div2”,...,“div5”, раскрашенные в разные цвета, невидимые при загрузке
+        страницы, и кнопку. При нажатии на кнопку должно в цикле срабатывать волнообразное
+        проявление областей div слево-направо, а затем наоборот, исчезновение. Цикл работает до
+        тех пор, пока не закрыта страница.</h1>
+    <div id="div1" class="div-box hidden" style="background-color: red;"></div>
+    <div id="div2" class="div-box hidden" style="background-color: blue;"></div>
+    <div id="div3" class="div-box hidden" style="background-color: green;"></div>
+    <div id="div4" class="div-box hidden" style="background-color: yellow;"></div>
+    <div id="div5" class="div-box hidden" style="background-color: orange;"></div>
+
+    <button onclick="toggleDivs()">Toggle Divs</button>
+
+    <script>
+        var divs = document.querySelectorAll('.div-box');
+        var interval;
+        var visible = false;
+        
+        function toggleDivs() {
+            clearInterval(interval);
+            
+            var count = divs.length;
+            var step = 300;
+            
+            interval = setInterval(function() {
+                for (var i = 0; i < count; i++) {
+                    var index = visible ? count - i - 1 : i;
+                    setTimeout(toggleVisibility, i * step, divs[index]);
+                }
+                visible = !visible;
+            }, count * step);
+        }
+        
+        function toggleVisibility(element) {
+            element.classList.toggle('hidden');
+        }
+        function redirectToPage() {
+          window.location.href = "individ4_1.html";
+        }
+    </script>
+    
+    <div style="clear:both;"></div>
+    <button onclick="redirectToPage()">Продолжить</button>
+
+</body>
+</html>

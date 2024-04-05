@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Individual 4</title>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .paragraph {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    img {
+        cursor: pointer;
+        position: relative;
+        width: 50px;
+        height: 50px;
+    }
+</style>
+</head>
+<body>
+    <h1>Вариант 1: создать файл Individual_4.html, добавить сверху кнопку, а затем пять
+        параграфов с каким-либо текстом и между каждым параграфом по маленькому рисунку.
+        При нажатии на кнопку среди всех найденных параграфов для 3-го и 5-го изменить
+        положение – сместить его на 100 пт влево относительно текущего положения. При
+        нажатии на любую из картинок должно происходить движение текущей вниз на 30 пт.</h1>
+<button onclick="moveParagraphs()">Move Paragraphs</button>
+<button onclick="redirectToPage()">Продолжить</button>
+
+<p class="paragraph">Параграф 1</p>
+<img src="img/1123.png" alt="Image 1" onclick="moveImage(this)">
+<p class="paragraph">Параграф 2</p>
+<img src="img/1123.png" alt="Image 2" onclick="moveImage(this)">
+<p class="paragraph">Параграф 3</p>
+<img src="img/1123.png" alt="Image 3" onclick="moveImage(this)">
+<p class="paragraph">Параграф 4</p>
+<img src="img/1123.png" alt="Image 4" onclick="moveImage(this)">
+<p class="paragraph">Параграф 5</p>
+<img src="img/1123.png" alt="Image 5" onclick="moveImage(this)">
+
+<script>
+    function moveParagraphs() {
+        var paragraphs = document.querySelectorAll('.paragraph');
+        for (var i = 0; i < paragraphs.length; i++) {
+            if (i === 2 || i === 4) {
+                paragraphs[i].style.marginLeft = '-100px';
+            }
+        }
+    }
+
+    function moveImage(image) {
+        var currentTop = parseInt(image.style.top) || 0;
+        image.style.top = (currentTop + 30) + 'px';
+    }
+    function redirectToPage() {
+      window.location.href = "individ4_2.html";
+    }
+</script>
+
+</body>
+</html>

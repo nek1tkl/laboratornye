@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Individual 3</title>
+<style>
+    #imageContainer {
+        overflow: hidden;
+    }
+    img {
+        width: 100px;
+        height: 100px;
+        float: left; 
+        visibility: hidden; 
+    }
+</style>
+</head>
+<body>
+    <h1>Вариант 1: создать файл Individual_3.html, добавить два рисунка, невидимые при загрузке
+        страницы, и две кнопки. При нажатии на одну кнопку должно в цикле срабатывать
+        проявление первой картинки и исчезновение второй картинки со скоростью 2000, а затем
+        наоборот, при нажатии на вторую кнопку обе картинки должны появиться и прекратить
+        мигание.</h1>
+    <div id="imageContainer">
+        <img id="image1" src="img/1123.png" alt="Image 1">
+        <img id="image2" src="img/1123.png" alt="Image 2">
+    </div>
+
+    <button id="button1">Кнопка 1</button>
+    <button id="button2">Кнопка 2</button>
+    <button onclick="redirectToPage()">Продолжить</button>
+
+    <script>
+        const image1 = document.getElementById('image1');
+        const image2 = document.getElementById('image2');
+        const button1 = document.getElementById('button1');
+        const button2 = document.getElementById('button2');
+
+        let intervalId;
+        let isVisible = false;
+
+        function toggleImages() {
+            intervalId = setInterval(function() {
+                if (isVisible) {
+                    image1.style.visibility = 'hidden';
+                    image2.style.visibility = 'visible';
+                } else {
+                    image1.style.visibility = 'visible';
+                    image2.style.visibility = 'hidden';
+                }
+                isVisible = !isVisible;
+            }, 2000);
+        }
+
+        button1.addEventListener('click', function() {
+            toggleImages();
+        });
+
+        button2.addEventListener('click', function() {
+            clearInterval(intervalId);
+            image1.style.visibility = 'visible';
+            image2.style.visibility = 'visible';
+        });
+        function redirectToPage() {
+      window.location.href = "individ3_2.html";
+    }
+    </script>
+</body>
+</html>
