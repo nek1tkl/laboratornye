@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <!-- Подключаем Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Подключаем свой CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+        /* Увеличиваем высоту хедера */
+        header {
+            height: 120px; /* Настройте высоту по вашему усмотрению */
+        }
+        /* Увеличиваем высоту футера */
+        footer {
+            height: 80px; /* Настройте высоту по вашему усмотрению */
+            display: flex;
+            align-items: center;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+        }
+        .form-signin .form-floating {
+            margin-bottom: 10px;
+        }
+        .form-signin .btn {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<form class="form-signin">
+    <h1 class="h3 mb-3 fw-normal text-center">Регистрация</h1>
+
+    <div class="form-floating">
+        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+    </div>
+    <div class="form-floating">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Пароль">
+    </div>
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Зарегистрироваться</button>
+    <a class="btn btn-link" href="autorization.html">Уже зарегистрированы? Войти</a>
+</form>
+
+<!-- Подключаем Bootstrap JS (jQuery и Popper.js должны быть подключены перед Bootstrap.js) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

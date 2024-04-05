@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты поиска</title>
+    <!-- Подключаем Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+        /* Увеличиваем высоту хедера */
+        header {
+            height: 100px; /* Настройте высоту по вашему усмотрению */
+        }
+        /* Увеличиваем высоту футера */
+        footer {
+            height: 80px; /* Настройте высоту по вашему усмотрению */
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column">
+
+<!-- Хедер -->
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand" href="#">Zillow</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Главная <span class="sr-only">(текущая)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Услуги</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Личный кабинет</a>
+        </li>
+      </ul>
+      <!-- Форма поиска, пример -->
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search">
+        <button class="btn btn-success my-2 my-sm-0" type="submit">Найти</button>
+        <!-- Кнопка с развертывающимся списком для фильтрации -->
+        <div class="dropdown ml-auto">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Фильтр
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#"><input type="checkbox"> Пункт 1</a>
+            <a class="dropdown-item" href="#"><input type="checkbox"> Пункт 2</a>
+            <a class="dropdown-item" href="#"><input type="checkbox"> Пункт 3</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </nav>
+</header>
+
+<!-- Шапка сайта -->
+<section class="jumbotron">
+  <div class="container">
+    <h1 class="display-4">Результаты поиска</h1>
+    <p class="lead">Здесь отображаются результаты вашего поиска.</p>
+  </div>
+</section>
+
+<!-- Футер -->
+<footer class="footer bg-primary text-white mt-auto">
+  <div class="container text-center">
+    <span class="align-middle">© 2024 Zillow.</span>
+  </div>
+</footer>
+
+<!-- Подключаем Bootstrap JS (jQuery и Popper.js должны быть подключены перед Bootstrap.js) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
